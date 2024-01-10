@@ -23,13 +23,13 @@ app.use(express.json())
 
 
 // *-*-*-*-Rutas 
-// app.get('/',(req,res)=>{
-//     res.send("Server on")
+//app.get('/',(req,res)=>{
+//    res.send("Server on")
 // })
 
-app.use('/api',routerVeterinarios)
+ app.use('/api',routerVeterinarios)
 // Manejo de una ruta que no sea encontrada
-app.use((req,res)=>res.status(404).send("Endpoint no encontrado - 404"))
+ app.use((req,res)=>res.status(404).send("Endpoint no encontrado - 404"))
 
 
 //-*-*-*-*-*-exportar la variable
