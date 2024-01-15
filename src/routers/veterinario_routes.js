@@ -28,7 +28,6 @@ router.get("/veterinarios", listarVeterinarios);
 router.get("/recuperar-password", recuperarPassword);
 router.get("/recuperar-password/:token", comprobarTokenPasword);
 router.post("/nuevo-password/:token", nuevoPassword);
-
 router.get("/perfil", perfil);
 router.put('/veterinario/actualizarpassword',actualizarPassword)
 router.get("/veterinario/:id", detalleVeterinario);
