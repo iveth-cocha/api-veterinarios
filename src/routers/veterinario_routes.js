@@ -1,6 +1,8 @@
 //IMPORTAR
 import {Router} from 'express'
 import verificarAutenticacion from '../middlewares/autenticacion.js'
+import { validacionVeterinario } from '../middlewares/validacionVeterinario.js';
+
 
 //INSTANCIA
 const router = Router()
@@ -19,6 +21,8 @@ import {
     comprobarTokenPasword,
     nuevoPassword,
 } from "../controllers/veterinario_controller.js";
+
+router.post('/registro',validacionVeterinario,registro)
 
 //definir rutas
 
