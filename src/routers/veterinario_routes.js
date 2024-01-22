@@ -42,4 +42,5 @@ router.put('/veterinario/:id',verificarAutenticacion,actualizarPerfil)
 
 //EXPORTAR VARIABLE
 //por el default puedo sobreescribir la variable router
+
 export default router
