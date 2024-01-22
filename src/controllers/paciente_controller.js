@@ -1,6 +1,8 @@
 import { sendMailToPaciente } from "../config/nodemailer.js"
+import generarJWT from "../helpers/crearJWT.js"
 import Paciente from "../models/Paciente.js"
 import mongoose from "mongoose"
+
 
 
 //metodo login
