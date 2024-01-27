@@ -1,6 +1,7 @@
 import { sendMailToPaciente } from "../config/nodemailer.js"
 import generarJWT from "../helpers/crearJWT.js"
 import Paciente from "../models/Paciente.js"
+import Tratamiento from "../models/Tratamiento.js"
 import mongoose from "mongoose"
 
 
@@ -51,7 +52,12 @@ const detallePaciente = async(req,res)=>{
     const {id} = req.params
     if( !mongoose.Types.ObjectId.isValid(id) ) return res.status(404).json({msg:`Lo sentimos, no existe el veterinario ${id}`});
     const paciente = await Paciente.findById(id).select("-createdAt -updatedAt -__v").populate('veterinario','_id nombre apellido')
-    res.status(200).json(paciente)
+    //se incluye el tratamieno, para que se asocie al veterinario que lo atiende
+    const tratamientos = await Tratamiento.find({estado:true}).where('paciente').equals(id)
+    res.status(200).json({
+        paciente,
+        tratamientos
+    })
 }
 //metodo registrar oaciente
 const registrarPaciente = async(req,res)=>{
